@@ -1,0 +1,193 @@
+.header__top {
+  background-color: $blackBold;
+  font-size: 1.2rem;
+  color: $gray2;
+  white-space: nowrap;
+
+  .main-content {
+    @include flex(row, space-between, center);
+
+    .working-time__hours {
+      margin-left: 0.3rem;
+      margin-right: 1rem;
+    }
+  }
+
+  &-left {
+    @include flex(row, flex-start, center);
+    justify-content: flex-start;
+    .social-network-list {
+      @include flex;
+      margin-left: 3.5rem;
+
+      a {
+        padding: 1rem 1.3rem;
+        font-size: 1.3rem;
+        border-left: 2px solid $blackMedium;
+        display: block;
+      }
+    }
+  }
+
+  &-right {
+    .account {
+      @include flex;
+
+      .account-signin {
+        margin-right: 3.5rem;
+      }
+
+      & > div i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  a {
+    color: $gray2;
+    transition: 0.3s;
+
+    &:hover {
+      color: $white;
+    }
+  }
+}
+
+.header__middle {
+  background-image: url("../assets/images/header-bg.png");
+  .main-content {
+    @include flex;
+  }
+
+  &-left {
+    @include flex(row, flex-start, center);
+    flex-basis: 50%;
+    .logo {
+      margin: 0;
+      img {
+        max-width: 29.3rem;
+        height: 14.7rem;
+      }
+    }
+
+    .header-sp img {
+      max-width: 18rem;
+      height: 14.7rem;
+    }
+  }
+
+  &-right {
+    flex-basis: 50%;
+
+    .support {
+      color: $gray3;
+      font-size: 1.4rem;
+      margin-left: 3rem;
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+
+    .features {
+      @include flex;
+      margin-top: .7rem;
+
+      &__search {
+        background-color: $white;
+        flex-grow: 1;
+        border-radius: 3rem;
+        padding: 1rem 2rem;
+        overflow: hidden;
+        min-width: 21rem !important;
+        @include flex;
+
+        input {
+          font-size: 1.4rem;
+          border: none;
+          outline: none;
+          flex-grow: 1;
+          padding-right: 1.5rem;
+          margin-right: 1.5rem;
+          border-right: 1px solid $gray0;
+        }
+
+        a {
+          color: $gray2;
+          font-size: 1.4rem;
+        }
+      }
+
+      &__cart {
+        margin-left: 2.5rem;
+
+        a {
+          font-size: 2rem;
+          color: $blackBold;
+        }
+
+        span {
+          margin-left: 1.5rem;
+          font-size: 1.4rem;
+          color: $blackBold;
+        }
+      }
+    }
+  }
+}
+
+.header__bottom {
+  background-color: $greenMedium;
+
+  nav {
+    @include flex(row, flex-start, center);
+    
+
+    label {
+      color: $white;
+      font-size: 2rem;
+      cursor: pointer;
+      margin-right: 3rem;
+    }
+
+    input {
+      display: none;
+    }
+
+    .nav__list {
+      @include flex;
+
+      .nav__item {
+        margin-right: .2rem;
+        a {
+          color: $white;
+          padding: 1.6rem 2rem;
+          display: block;
+          font-size: 1.2rem;
+          transition: .3s;
+
+          i {
+            font-size: 1.4rem;
+            margin-left: .5rem;
+          }
+        }
+
+        &:hover a, &--active a {
+          background-color: $greenBold;
+        }
+      }
+    }
+
+    .features-mobile {
+      a {
+        font-size: 1.8rem;
+        margin-left: 2rem;
+        color: $white;
+
+        &:last-child {
+          font-size: 2rem;
+        }
+      }
+    }
+  }
+}
