@@ -1,0 +1,63 @@
+include ../common/variables/social-networks
+include ../common/variables/icons
+include ../common/variables/nav-list
+
+header.header
+    .header__top.d-none.d-sm-block
+        .main-content
+            .header__top-left 
+                p.working-time 
+                    i(class="las la-clock")
+                    span.working-time__hours Open time: 8:00 - 18:00
+                    span.working-time_days Monday - Sunday
+                ul.social-network-list 
+                    each item in socialNetworks 
+                        li.social-network-item(class=`${item.name}-icon`) 
+                            a(href="#").social-network-link
+                                i(class=item.icon)
+            .header__top-right 
+                .account 
+                    .account-signin 
+                        i(class=icons.user)
+                        a(href="#")  Đăng nhập
+                    .account-signup 
+                        i(class=icons.userPlus)
+                        a(href="#")  Đăng ký 
+    .header__middle
+        .main-content
+            .header__middle-left 
+                h1.logo 
+                    img(src="./assets/images/logo.png", alt="Logo green shop").d-none.d-sm-inline
+                    img(src="./assets/images/logo-mobile.png", alt="Logo green shop").d-sm-none
+                .header-sp.d-none.d-sm-inline
+                    img(src="./assets/images/header-sp.png", alt="header product")
+            .header__middle-right.d-none.d-lg-block
+                .support 
+                    i(class=icons.phone)
+                    span Hỗ trợ :  (04) 6674 2332 - (04) 3786 8904
+                .features
+                    .features__search 
+                        input(type="text" placeholder="Tìm kiếm...")
+                        a(href="#") 
+                            i(class=icons.search)
+                    .features__cart
+                        a(href="#") 
+                            i(class=icons.bag)
+                        span 0 sản phẩm
+    .header__bottom.py-4.py-lg-0 
+        nav.main-content.justify-content-between.justify-content-lg-start
+            label(for="menu-button") 
+                i(class=icons.menu)
+            input(id="menu-button" type="checkbox")
+            ul.nav__list.d-none.d-lg-flex 
+                each item in navList 
+                    li.nav__item(class=item.active&&"nav__item--active") 
+                        a(href=item.link).nav__link
+                            span= item.title
+                            if item.icon 
+                                i(class=icons.downArrow)
+            .features-mobile.d-lg-none
+                a(href="#") 
+                    i(class=icons.search)
+                a(href="#") 
+                    i(class=icons.bag)
