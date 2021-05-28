@@ -6,7 +6,7 @@
     padding: 2rem 0;
     border-bottom: 1px solid $gray8;
 
-    @media screen and (max-width: 768px) {
+    @include md {
       padding: 3rem 0;
     }
 
@@ -17,7 +17,7 @@
         font-size: 1.4rem;
         font-weight: 500;
         font-family: $font3;
-        @media screen and (max-width: 768px) {
+        @include md {
           color: $greenMedium;
         }
       }
@@ -34,7 +34,7 @@
             color: $gray2;
             transition: 0.3s;
 
-            @media screen and (max-width: 768px) {
+            @include md {
               color: $white;
               font-size: 1.6rem;
             }
@@ -54,7 +54,7 @@
         font-size: 1.4rem;
         font-family: $font3;
 
-        @media screen and (max-width: 768px) {
+        @include md {
           color: $greenMedium;
         }
       }
@@ -93,7 +93,7 @@
     padding: 4rem 0;
     border-bottom: 1px solid $gray8;
 
-    @media screen and (max-width: 768px) {
+    @include md {
       padding: 2rem 0;
     }
 
