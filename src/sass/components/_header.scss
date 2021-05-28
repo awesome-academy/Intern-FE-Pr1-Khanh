@@ -91,7 +91,7 @@
 
     .features {
       @include flex;
-      margin-top: .7rem;
+      margin-top: 0.7rem;
 
       &__search {
         background-color: $white;
@@ -141,7 +141,6 @@
 
   nav {
     @include flex(row, flex-start, center);
-    
 
     label {
       color: $white;
@@ -158,21 +157,22 @@
       @include flex;
 
       .nav__item {
-        margin-right: .2rem;
+        margin-right: 0.2rem;
         a {
           color: $white;
           padding: 1.6rem 2rem;
           display: block;
           font-size: 1.2rem;
-          transition: .3s;
+          transition: 0.3s;
 
           i {
             font-size: 1.4rem;
-            margin-left: .5rem;
+            margin-left: 0.5rem;
           }
         }
 
-        &:hover a, &--active a {
+        &:hover a,
+        &--active a {
           background-color: $greenBold;
         }
       }

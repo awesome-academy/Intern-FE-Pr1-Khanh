@@ -1,0 +1,192 @@
+.footer {
+  background-color: $gray7;
+  color: $gray2;
+
+  &__top {
+    padding: 2rem 0;
+    border-bottom: 1px solid $gray8;
+
+    @media screen and (max-width: 768px) {
+      padding: 3rem 0;
+    }
+
+    &-left {
+      @include flex(column, center, flex-start);
+
+      p {
+        font-size: 1.4rem;
+        font-weight: 500;
+        font-family: $font3;
+        @media screen and (max-width: 768px) {
+          color: $greenMedium;
+        }
+      }
+
+      .chanels-list {
+        @include flex($justifyContent: start);
+        margin-top: 0.3rem;
+
+        .chanel-item {
+          margin-right: 2rem;
+
+          .chanel-link {
+            font-size: 1.4rem;
+            color: $gray2;
+            transition: 0.3s;
+
+            @media screen and (max-width: 768px) {
+              color: $white;
+              font-size: 1.6rem;
+            }
+
+            &:hover {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    &-right {
+      @include flex($justifyContent: flex-start);
+
+      .subscribe-title {
+        font-size: 1.4rem;
+        font-family: $font3;
+
+        @media screen and (max-width: 768px) {
+          color: $greenMedium;
+        }
+      }
+
+      .subscribe-form {
+        @include flex;
+        align-self: stretch;
+
+        input {
+          flex-grow: 1;
+          height: 100%;
+          border: none;
+          outline: none;
+          font-size: 1.4rem;
+          padding: 0 1.5rem;
+        }
+
+        a {
+          @include flex;
+          font-size: 1.4rem;
+          padding: 1.5rem;
+          height: 100%;
+          background-color: $greenMedium;
+          color: $white;
+          transition: 0.3s;
+
+          &:hover {
+            background-color: $greenBold;
+          }
+        }
+      }
+    }
+  }
+
+  &__middle {
+    padding: 4rem 0;
+    border-bottom: 1px solid $gray8;
+
+    @media screen and (max-width: 768px) {
+      padding: 2rem 0;
+    }
+
+    &-left {
+      .footer-logo {
+        img {
+          width: 29.3rem;
+        }
+      }
+
+      .footer-description {
+        padding-right: 8rem;
+        text-align: justify;
+        font-size: 1.2rem;
+        font-family: $font3;
+        margin-top: 0.7rem;
+        margin-bottom: 1.2rem;
+      }
+
+      .contact-item {
+        margin-bottom: 1rem;
+
+        i {
+          color: $greenMedium;
+          font-size: 1.2rem;
+        }
+
+        span {
+          font-size: 1.2rem;
+          margin-left: 1rem;
+        }
+
+        &:first-child span {
+          margin-left: 1.4rem;
+        }
+      }
+
+      .service-item {
+        margin-top: 2rem;
+
+        @media screen and (max-width: 992px) {
+          margin-top: 3rem;
+        }
+
+        p {
+          color: $greenMedium;
+          font-size: 1.4rem;
+        }
+
+        .sub-service-list {
+          .sub-service-item {
+            margin-top: 2rem;
+
+            @media screen and (max-width: 576px) {
+              margin-top: 1rem;
+            }
+
+            a {
+              color: $gray2;
+              font-size: 1.2rem;
+              transition: 0.3s;
+
+              &:hover {
+                color: $white;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    .orther-list {
+      @include flex($justifyContent: flex-start);
+      padding: 2.5rem 0;
+      padding-top: 1rem;
+      flex-wrap: wrap;
+
+      .orther-item {
+        margin-right: 2.3rem;
+        margin-top: 1rem;
+
+        .orther-link {
+          font-size: 1.2rem;
+          color: $gray2;
+          display: block;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,60 @@
+include ../common/variables/chanels
+include ../common/variables/footer-list
+
+footer.footer 
+    .footer__top
+        .main-content.row 
+            .col-12.col-md-4.footer__top-left 
+                    p.our-chanels KÊNH THÔNG TIN TỪ CHÚNG TÔI 
+                    ul.chanels-list 
+                        each item in chanels 
+                            li.chanel-item 
+                                a(href="#").chanel-link
+                                    i(class=item.icon)
+            .col-12.col-md-8.footer__top-right.row.mt-4.mt-md-0
+                p.subscribe-title.col-12.col-md-4 ĐĂNG KÝ NHẬN <br class="d-none d-md-inline"/> EMAIL TỪ CHÚNG TÔI
+                .subscribe-form.col-12.col-md-8.mt-3.mt-md-0
+                    input(type="text")
+                    a(href="#") 
+                        i(class=icons.plane)
+    .footer__middle
+        .main-content.row 
+            .col-12.col-lg-4.footer__middle-left
+                .footer-logo 
+                    img(src="./assets/images/bottom-logo.png", alt="green shop logo")
+                p.footer-description Green shop được thành lập từ 8/2010 được sự tin tưởng của khách hàng trong suốt thời gian hoạt động đến nay cửa hàng ngày một phát triển 
+                ul.footer-contacts 
+                    li.contact-item 
+                        i(class=icons.mobile)
+                        span Điện thoại: (84-4) 66.558.868                        
+                    li.contact-item 
+                        i(class=icons.email)
+                        span Email: info@dkt.com.vn                        
+            .col-12.col-lg-8.footer__middle-left
+                ul.service-list.row
+                    each item in footerList 
+                        li.service-item(class=item.responsive) 
+                            p= item.title
+                            ul.sub-service-list 
+                                each subItem in item.children 
+                                    li.sub-service-item 
+                                        a(href=subItem.link)= subItem.title
+    .footer__bottom
+        .main-content 
+            ul.orther-list 
+                li.orther-item 
+                    a(href="#").orther-link Sitemap 
+                li.orther-item 
+                    a(href="#").orther-link Danh mục sản phẩm 
+                li.orther-item 
+                    a(href="#").orther-link Hợp tác 
+                li.orther-item 
+                    a(href="#").orther-link Thông tin liên hệ 
+                li.orther-item 
+                    a(href="#").orther-link Câu hỏi thường gặp 
+
+
+
+
+
+            
