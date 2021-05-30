@@ -1,0 +1,295 @@
+.main__slide {
+  background-image: url("../assets/images/slide.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin-bottom: $sectionSpace;
+
+  @include sm {
+    margin-bottom: 2rem;
+  }
+}
+
+.slide {
+  @include flex(column);
+  padding-top: 14rem;
+  padding-bottom: 14rem;
+  color: $white;
+  position: relative;
+  @include lg {
+    padding-top: 10rem;
+    padding-bottom: 10rem;
+  }
+
+  @include md {
+    padding-top: 5rem;
+    padding-bottom: 10rem;
+  }
+
+  &__brand {
+    font-family: $font2;
+    font-size: 6.6rem;
+    font-weight: bold;
+    text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+    margin-bottom: 4.5rem;
+    @include lg {
+      font-size: 5rem;
+    }
+    @include md {
+      font-size: 3.5rem;
+    }
+  }
+
+  &__content {
+    @include flex(column);
+    margin-bottom: 3.5rem;
+    text-align: center;
+
+    .content__title {
+      font-family: $font4;
+      font-size: 10.374rem;
+      line-height: 10.374rem;
+      text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+      @include lg {
+        font-size: 9rem;
+      }
+      @include md {
+        font-size: 6rem;
+        line-height: 8rem;
+      }
+    }
+
+    .content__sub-title {
+      font-size: 1.8rem;
+      font-family: $font3;
+      text-shadow: 2px 3px 5px rgba(0, 0, 0, 0.5);
+      @include md {
+        font-size: 1.4rem;
+      }
+    }
+  }
+
+  &__button {
+    position: absolute;
+    bottom: 5rem;
+
+    .cirle-button {
+      margin: 0 0.5rem;
+      padding: 0.7rem;
+      border: none;
+      outline: none;
+      background-color: $white;
+      border-radius: 50%;
+
+      &--active {
+        background-color: $greenMedium;
+      }
+    }
+  }
+}
+
+.hot-products {
+  margin-bottom: $sectionSpace;
+}
+
+.hot-products-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 35rem 23rem 35rem;
+  grid-gap: $itemSpace;
+  margin-top: 4rem;
+
+  @include sm {
+    margin-top: 2.5rem;
+  }
+
+  @include lg {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 58.2rem 39.5rem 39.5rem 58.2rem;
+  }
+
+  @include sm {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 48.2rem 29.5rem 29.5rem 48.2rem;
+    grid-gap: 1.5rem;
+  }
+
+  .product-item {
+    border: 1px solid $gray10;
+    background-color: $white;
+    @include flex(column, flex-start, center);
+
+    &:nth-child(1) {
+      grid-column: 1/3;
+      grid-row: 1/3;
+
+      @include lg {
+        grid-column: 1/3;
+        grid-row: 1/2;
+      }
+    }
+
+    &:nth-child(6) {
+      grid-row: 2/4;
+      grid-column: 3/5;
+
+      @include lg {
+        grid-column: 1/3;
+        grid-row: 4/5;
+      }
+    }
+
+    &:nth-child(1),
+    &:nth-child(6) {
+      .product-item__top {
+        width: 100%;
+        flex-grow: 1;
+      }
+    }
+
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4),
+    &:nth-child(5) {
+      .product-item__top {
+        width: 100%;
+        flex-grow: 1;
+
+        .product-thumbnail {
+          @include sm {
+            flex-direction: column;
+
+            a {
+              margin: 0.5rem 0;
+            }
+          }
+        }
+
+        .product-note {
+          @include sm {
+            display: none;
+          }
+        }
+      }
+    }
+
+    &__top {
+      position: relative;
+      overflow: hidden;
+
+      .product-image {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        transform: scale(1.2);
+        object-fit: cover;
+        bottom: 1rem;
+      }
+
+      .product-thumbnail {
+        position: absolute;
+        @include flex;
+        height: 100%;
+        width: 100%;
+        background-color: rgba(0, 0, 0, 0.3);
+        opacity: 0;
+        visibility: hidden;
+        transition: 0.3s;
+
+        a {
+          margin: 0 0.6rem;
+
+          &:last-child {
+            color: $blackMedium;
+            width: 3.5rem;
+            height: 3.5rem;
+            display: block;
+            background-color: $white;
+            @include flex;
+            border-radius: 50%;
+          }
+        }
+      }
+
+      &:hover .product-thumbnail {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .product-note {
+        position: absolute;
+        width: 6rem;
+        height: 6rem;
+        background-color: $greenMedium;
+        @include flex;
+        color: $white;
+        font-size: 1.4rem;
+        border-radius: 50%;
+        top: 2.5rem;
+        left: 2.5rem;
+
+        @include sm {
+          top: 1.5rem;
+          left: 1.5rem;
+        }
+      }
+    }
+
+    &__bottom {
+      padding: 2.5rem 0;
+      @include flex(column);
+      @include sm {
+        padding: 2rem 0;
+      }
+
+      .product-name {
+        margin-bottom: 1rem;
+
+        a {
+          font-size: 1.6rem;
+          color: $gray4;
+          font-weight: 400;
+        }
+      }
+
+      .product-star-list {
+        @include flex;
+        margin-bottom: 1rem;
+
+        .product-star-item {
+          margin: 0 0.2rem;
+          i {
+            font-size: 1.4rem;
+            color: $yellowBold;
+
+            @include sm {
+              font-size: 1.2rem;
+            }
+          }
+        }
+      }
+
+      .product-price {
+        @include flex;
+        flex-wrap: wrap;
+
+        &--new {
+          font-size: 1.8rem;
+          color: $redBold;
+          margin: 0 0.5rem;
+
+          @include sm {
+            font-size: 1.6rem;
+          }
+        }
+
+        &--old {
+          font-size: 1.4rem;
+          color: $gray9;
+          text-decoration: line-through;
+          margin: 0 0.5rem;
+        }
+      }
+    }
+  }
+}

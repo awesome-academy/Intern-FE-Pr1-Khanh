@@ -1,12 +1,15 @@
 //Font
-$font1: 'Roboto', sans-serif;
-$font2: 'Roboto Slab', serif;
+$font1: "Roboto", sans-serif;
+$font2: "Roboto Slab", serif;
 $font3: Arial, Helvetica, sans-serif;
+$font4: "GulyesaScript", serif;
 
 //Color
 $blackBold: #202020;
 $blackMedium: #2b2b2b;
-$blackRegular: #2B2B2B;
+$blackRegular: #2b2b2b;
+$gray10: #e1e1e1;
+$gray9: #959595;
 $gray8: #494949;
 $gray7: #313131;
 $gray6: #434343;
@@ -28,3 +31,8 @@ $greenMedium: #3fb871;
 $greenRegular: #98cb4a;
 $blue: #5481e6;
 $purple: #913ccd;
+
+//Space
+$itemSpace: 3rem;
+$headerSpace: 3rem;
+$sectionSpace: 4rem;

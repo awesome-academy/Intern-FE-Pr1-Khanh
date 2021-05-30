@@ -1,8 +1,17 @@
+header {
+  position: relative;
+  z-index: 2;
+}
+
 .header__top {
   background-color: $blackBold;
   font-size: 1.2rem;
   color: $gray2;
   white-space: nowrap;
+
+  @include md {
+    padding: 1rem 0;
+  }
 
   .main-content {
     @include flex(row, space-between, center);
@@ -16,9 +25,14 @@
   &-left {
     @include flex(row, flex-start, center);
     justify-content: flex-start;
+    
     .social-network-list {
       @include flex;
       margin-left: 3.5rem;
+
+      @include md {
+        display: none;
+      }
 
       a {
         padding: 1rem 1.3rem;
@@ -35,6 +49,10 @@
 
       .account-signin {
         margin-right: 3.5rem;
+
+        @include lg {
+          margin-right: 2rem;
+        }
       }
 
       & > div i {
@@ -124,6 +142,11 @@
         a {
           font-size: 2rem;
           color: $blackBold;
+          transition: 0.3s;
+
+          &:hover {
+            color: $greenMedium;
+          }
         }
 
         span {
