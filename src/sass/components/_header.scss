@@ -138,6 +138,7 @@
 
 .header__bottom {
   background-color: $greenMedium;
+  position: relative;
 
   nav {
     @include flex(row, flex-start, center);
@@ -151,6 +152,13 @@
 
     input {
       display: none;
+
+      @include lg {
+        &:checked ~ .nav__list {
+          right: 0;
+          opacity: 1;
+        }
+      }
     }
 
     .nav__list {
@@ -158,6 +166,8 @@
 
       .nav__item {
         margin-right: 0.2rem;
+        position: relative;
+
         a {
           color: $white;
           padding: 1.6rem 2rem;
@@ -174,6 +184,74 @@
         &:hover a,
         &--active a {
           background-color: $greenBold;
+          top: 100%;
+        }
+
+        &:hover .sub-nav__list {
+          opacity: 1;
+          visibility: visible;
+        }
+
+        .sub-nav__list {
+          position: absolute;
+          opacity: 0;
+          visibility: hidden;
+          padding: 0 0.5rem;
+          background-color: $greenBold;
+          width: 150%;
+          padding-top: 0.5rem;
+
+          .sub-nav__item {
+            margin-bottom: 0.5rem;
+          }
+
+          .sub-nav__link {
+            transition: 0.3s;
+            font-size: 1.3rem;
+
+            &:hover {
+              background-color: $white;
+              color: $greenMedium;
+            }
+          }
+        }
+      }
+
+      @include lg {
+        position: absolute;
+        top: 100%;
+        background-color: $greenMedium;
+        width: 100%;
+        right: 100%;
+        display: block;
+        transition: 0.5s;
+        opacity: 0;
+
+        .nav__item {
+          .nav__link {
+            padding: 1.6rem 1.6rem;
+          }
+
+          .sub-nav__list {
+            @include flex(row, flex-start, center);
+            flex-wrap: wrap;
+            width: 100%;
+            padding-top: 0;
+
+            .sub-nav__item {
+              flex-basis: 33.33%;
+              align-self: stretch;
+
+              .sub-nav__link {
+                // padding: .6rem 1rem;
+                padding: 1rem;
+                height: 100%;
+              }
+            }
+          }
+          &:hover .sub-nav__list {
+            position: relative;
+          }
         }
       }
     }

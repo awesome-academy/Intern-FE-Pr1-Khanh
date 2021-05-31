@@ -26,8 +26,9 @@ header.header
         .main-content
             .header__middle-left 
                 h1.logo 
-                    img(src="./assets/images/logo.png", alt="Logo green shop").d-none.d-sm-inline
-                    img(src="./assets/images/logo-mobile.png", alt="Logo green shop").d-sm-none
+                    a(href="#") 
+                        img(src="./assets/images/logo.png", alt="Logo green shop").d-none.d-sm-inline
+                        img(src="./assets/images/logo-mobile.png", alt="Logo green shop").d-sm-none
                 .header-sp.d-none.d-sm-inline
                     img(src="./assets/images/header-sp.png", alt="header product")
             .header__middle-right.d-none.d-lg-block
@@ -43,18 +44,23 @@ header.header
                         a(href="#") 
                             i(class=icons.bag)
                         span 0 sản phẩm
-    .header__bottom.py-4.py-lg-0 
+    .header__bottom.py-4.py-lg-0
         nav.main-content.justify-content-between.justify-content-lg-start
             label(for="menu-button") 
                 i(class=icons.menu)
             input(id="menu-button" type="checkbox")
-            ul.nav__list.d-none.d-lg-flex 
+            ul.nav__list
                 each item in navList 
                     li.nav__item(class=item.active&&"nav__item--active") 
                         a(href=item.link).nav__link
                             span= item.title
-                            if item.icon 
+                            if item.children 
                                 i(class=icons.downArrow)
+                        if item.children 
+                            ul.sub-nav__list 
+                                    each child in item.children 
+                                        li.sub-nav__item 
+                                            a(href=child.link).sub-nav__link= child.title                           
             .features-mobile.d-lg-none
                 a(href="#") 
                     i(class=icons.search)
