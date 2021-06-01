@@ -1,0 +1,38 @@
+mixin sectionTitle(title='Section')
+    h3.section-title 
+        span.section-title__text= title
+
+mixin button(title='Click', style = null, url='#')
+    a(href=url class=`green-button ${style && 'green-button--' + style}`)= title
+
+mixin productStarList(number)
+    - var n = 1;
+    ul.product-star-list
+        while n <= 5
+            li.product-star-item 
+                if number 
+                    i(class="fas fa-star")
+                    - --number
+                else 
+                    li.product-star-item 
+                        i(class="far fa-star")
+            - ++n
+                        
+mixin productItem(item)
+    li.product-item 
+        .product-item__top
+            img(src=`./assets/images/${item.image}`, alt=item.name).product-image
+            .product-thumbnail
+                +button('MUA NGAY', 'small')
+                a(href="#")
+                    i(class="fas fa-search") 
+            if item.note 
+                div(class=`product-note ${item.note !== 'NEW' && 'bg-red'}`) 
+                    span= item.note 
+        .product-item__bottom
+            h4.product-name
+                a(href="#")= item.name 
+            +productStarList(item.star)
+            .product-price 
+                span.product-price--new= item.price + ' đ'
+                span.product-price--old= item.oldPrice + ' đ'

@@ -1,5 +1,26 @@
 extends ../common/base.pug
 
+block variables
+    include ../common/variables/hot-products
 block title 
     title Home
 block content
+    main.main 
+        section.main__slide 
+            .main-content.slide 
+                h2.slide__brand GREEN SHOP
+                P.slide__content 
+                    span.content__title CHO THUÊ CÂY CẢNH TẾT 2016
+                    i.content__sub-title ( Miễn phí vận chuyện với những đơn hàng có trị giá trên 5.000.000 )
+                .slide__detail
+                    +button('Xem chi tiết')
+                .slide__button 
+                    button.cirle-button.cirle-button--active
+                    button.cirle-button
+                    button.cirle-button
+        section.main__hot-products
+            .main-content.hot-products
+                +sectionTitle('Sản phẩm nổi bật') 
+                ul.hot-products-list 
+                    each item in hotProducts 
+                        +productItem(item)

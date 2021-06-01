@@ -2,10 +2,11 @@ const { src, dest, parallel, watch, series } = require("gulp"),
   concat = require("gulp-concat"),
   sass = require("gulp-sass"),
   pug = require("gulp-pug"),
+
   browserSync = require("browser-sync").create();
 
 const FilesPath = {
-  sassFiles: "src/sass/**/*.scss",
+  sassFiles: "src/sass/*.scss",
   htmlFiles: "src/pug/pages/*.pug",
 };
 
