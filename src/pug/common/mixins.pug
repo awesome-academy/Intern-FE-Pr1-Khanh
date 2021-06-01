@@ -1,6 +1,12 @@
-mixin sectionTitle(title='Section')
+mixin sectionTitle(title='Section', pagination=false)
     h3.section-title 
         span.section-title__text= title
+        if pagination 
+            .pagination
+                a(href="#") 
+                    i(class=icons.arrowLeft)
+                a(href="#") 
+                    i(class=icons.arrowRight)
 
 mixin button(title='Click', style = null, url='#')
     a(href=url class=`green-button ${style && 'green-button--' + style}`)= title
@@ -17,6 +23,15 @@ mixin productStarList(number)
                     li.product-star-item 
                         i(class="far fa-star")
             - ++n
+
+mixin productContent(item)
+    h4.product-name
+        a(href="#")= item.name 
+    +productStarList(item.star)
+    .product-price 
+        span.product-price--new= item.price + ' đ'
+        if item.oldPrice
+            span.product-price--old= item.oldPrice + ' đ'
                         
 mixin productItem(item)
     li.product-item 
@@ -30,9 +45,22 @@ mixin productItem(item)
                 div(class=`product-note ${item.note !== 'NEW' && 'bg-red'}`) 
                     span= item.note 
         .product-item__bottom
-            h4.product-name
-                a(href="#")= item.name 
-            +productStarList(item.star)
-            .product-price 
-                span.product-price--new= item.price + ' đ'
-                span.product-price--old= item.oldPrice + ' đ'
+            +productContent(item)
+
+mixin bestSaleProductItem(item)
+    li.product-item 
+        .product-item__left 
+            img(src=`./assets/images/${item.image}.png`, alt=item.name)
+        .product-item__right
+            +productContent(item)
+                
+mixin newsItem(item)
+    li.news-item 
+        .news-item__top 
+            img(src=`./assets/images/${item.image}`, alt=item.title)
+        .news-item__bottom 
+            i.news-date= item.createdDate 
+            h5.news-title
+                a(href="#")= item.title  
+            p.news-description= item.description
+            a(href="#").news-read-more Đọc tiếp
