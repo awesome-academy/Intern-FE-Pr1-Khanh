@@ -2,6 +2,10 @@ extends ../common/base.pug
 
 block variables
     include ../common/variables/hot-products
+    include ../common/variables/best-sale-products
+    include ../common/variables/discount-products
+    include ../common/variables/new-products
+    include ../common/variables/news
 block title 
     title Home
 block content
@@ -24,3 +28,34 @@ block content
                 ul.hot-products-list 
                     each item in hotProducts 
                         +productItem(item)
+        section.main__other-products
+            .main-content
+                .best-sale-products
+                    +sectionTitle('Sản phẩm mua nhiều') 
+                    ul.products-list 
+                        each item in bestSaleProducts 
+                            +bestSaleProductItem(item)
+                .discount-products
+                    +sectionTitle('Sản phẩm khuyến mại', true)
+                    ul.discount-products-list
+                        each item in discountProducts 
+                            +productItem(item)
+        section.main__banner  
+            .main-content 
+                .banner__background 
+                    h4.banner__title 
+                        span SƯƠNG RỒNG
+                        br
+                        span ĐÀ LẠT
+        section.main__new-products 
+            .main-content
+                +sectionTitle('Sản phẩm mới', true) 
+                ul.new-products-list
+                    each item in newProducts 
+                        +productItem(item)
+        section.main__news 
+            .main-content 
+                +sectionTitle('Tin tức')
+                ul.news-list 
+                    each item in news 
+                        +newsItem(item)

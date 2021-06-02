@@ -45,13 +45,14 @@ body {
 }
 
 .section-title {
+  @include flex($justifyContent: space-between);
   border-bottom: 0.1rem solid #e1e1e1;
 
   .section-title__text {
     position: relative;
     padding: 1.5rem 0;
     display: inline-block;
-    color: $greenMedium;
+    color: $greenBold;
     font-family: $font2;
     margin: 0;
 
@@ -60,9 +61,160 @@ body {
       position: absolute;
       bottom: -0.2rem;
       width: 100%;
-      height: 0.2rem;
+      height: 0.3rem;
       background-color: $greenMedium;
       left: 0;
+    }
+  }
+
+  .pagination {
+    a {
+      display: block;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      border: 1px solid #e1e1e1;
+      @include flex;
+      color: $gray2;
+      font-size: 1.2rem;
+      margin-left: .5rem;
+      &:hover {
+        background-color: $gray10;
+      }
+
+    }
+  }
+}
+
+.product-name {
+  margin-bottom: 1rem;
+  text-align: center;
+
+  a {
+    font-size: 1.6rem;
+    color: $gray4;
+    font-weight: 400;
+  }
+}
+
+.product-star-list {
+  @include flex;
+  margin-bottom: 1rem;
+
+  .product-star-item {
+    margin: 0 0.2rem;
+    i {
+      font-size: 1.4rem;
+      color: $yellowBold;
+
+      @include sm {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.product-price {
+  @include flex;
+  flex-wrap: wrap;
+
+  &--new {
+    font-size: 1.8rem;
+    color: $redBold;
+    margin: 0 0.5rem;
+
+    @include sm {
+      font-size: 1.6rem;
+    }
+  }
+
+  &--old {
+    font-size: 1.4rem;
+    color: $gray9;
+    text-decoration: line-through;
+    margin: 0 0.5rem;
+  }
+}
+
+.product-item {
+  border: 1px solid $gray10;
+  background-color: $white;
+  @include flex(column, flex-start, center);
+
+  &__top {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    flex-grow: 1;
+
+    .product-image {
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      transform: scale(1.2);
+      object-fit: cover;
+      bottom: 1rem;
+    }
+
+    .product-thumbnail {
+      position: absolute;
+      @include flex;
+      height: 100%;
+      width: 100%;
+      background-color: rgba(0, 0, 0, 0.3);
+      opacity: 0;
+      visibility: hidden;
+      transition: 0.3s;
+
+      a {
+        margin: 0 0.6rem;
+        &:last-child {
+          color: $blackMedium;
+          width: 3.5rem;
+          height: 3.5rem;
+          display: block;
+          background-color: $white;
+          @include flex;
+          border-radius: 50%;
+        }
+        @include sm {
+          margin: 0.5rem 0.6rem;
+        }
+      }
+
+      @include sm {
+        flex-direction: column;
+      }
+    }
+
+    &:hover .product-thumbnail {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .product-note {
+      position: absolute;
+      width: 6rem;
+      height: 6rem;
+      background-color: $greenMedium;
+      @include flex;
+      color: $white;
+      font-size: 1.4rem;
+      border-radius: 50%;
+      top: 2.5rem;
+      left: 2.5rem;
+
+      @include sm {
+        display: none;
+      }
+    }
+  }
+
+  &__bottom {
+    padding: 2.5rem 0;
+    @include flex(column);
+    @include sm {
+      padding: 2rem 0;
     }
   }
 }
