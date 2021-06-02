@@ -1,0 +1,29 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/form-data
+    - const pageTitle = 'Đăng kí'
+    
+block title 
+    title= pageTitle
+block content
+    main.main 
+        +breadcrumb(pageTitle)
+        section.form-content.main-content 
+            form(action="#")
+                h3.form-title THÔNG TIN CÁ NHÂN
+                ul.form-list 
+                    each item in signupForm.userInfo 
+                        +formItem(item) 
+                .form-checkbox
+                    input(id='subcription-email' type="checkbox")
+                    label(for="subcription-email") Đăng kí nhận thông tin qua email
+                h3.form-title THÔNG TIN TÀI KHOẢN 
+                ul.form-list 
+                    each item in signupForm.accountInfo
+                        +formItem(item)
+                .form-buttons 
+                    .back-button 
+                        +button('QUAY LẠI', 'large', true)
+                    .submit-button 
+                        +button('ĐĂNG KÝ', 'large', false, 'submit')

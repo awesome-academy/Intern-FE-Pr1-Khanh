@@ -26,16 +26,29 @@ body {
 }
 
 .green-button {
+  border-radius: 2rem;
+  background-color: $greenMedium;
+  border: 1px solid $greenMedium;
+  display: block;
   color: $white;
   font-size: 1.3rem;
   padding: 1.2rem 3rem;
-  display: block;
-  background-color: $greenMedium;
   text-transform: uppercase;
-  border-radius: 2rem;
+  line-height: 1;
+  @include flex;
 
   &--small {
     padding: 0.8rem 2.6rem;
+  }
+
+  &--large {
+    padding: 1.5rem 4rem;
+    border-radius: 3rem;
+  }
+
+  &--outline {
+    background-color: $white;
+    color: $greenMedium;
   }
 
   &:hover {
@@ -77,11 +90,10 @@ body {
       @include flex;
       color: $gray2;
       font-size: 1.2rem;
-      margin-left: .5rem;
+      margin-left: 0.5rem;
       &:hover {
         background-color: $gray10;
       }
-
     }
   }
 }
@@ -215,6 +227,31 @@ body {
     @include flex(column);
     @include sm {
       padding: 2rem 0;
+    }
+  }
+}
+
+.breadcrumb {
+  margin-top: 2rem;
+
+  &-list {
+    @include flex;
+
+    .breadcrumb-item {
+      a, span {
+        color: $gray2;
+        font-size: 1.2rem;
+        font-family: $font3;
+      }
+
+      &:last-child span {
+        color: $greenMedium;
+        cursor: default;
+      }
+
+      &::before {
+        float: none;
+      }
     }
   }
 }

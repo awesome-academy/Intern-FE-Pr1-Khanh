@@ -1,0 +1,33 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/form-data
+    - const pageTitle = 'Đăng nhập'
+    
+block title 
+    title= pageTitle
+block content
+    main.main 
+        +breadcrumb(pageTitle)
+        section.form-content.main-content 
+            form(action="#").form--row
+                .form__left 
+                    h3.form-title THÔNG TIN CÁ NHÂN
+                    ul.form-list.form-list--column 
+                        each item in signinForm.accountInfo 
+                            +formItem(item) 
+                    .form-checkbox 
+                        .checkbox.checkbox--bold
+                            input(id='remember-email' type="checkbox")
+                            label(for="remember-email") Ghi nhớ tài khoản
+                        .forgot-password 
+                            a(href="#") Bạn quên mật khẩu ? 
+                    .form-buttons.mt-5
+                        .submit-button 
+                            +button('ĐĂNG NHẬP', 'large', false, 'submit')
+                .form__right
+                    h3.form-title BẠN CHƯA CÓ TÀI KHOẢN ?
+                    P.form-description Đăng ký tài khoản ngay để có thể mua hàng nhanh chóng và dễ dàng hơn  ! Ngoài ra còn có rất nhiều chính sách và ưu đãi cho các thành viên citybike
+                    .signup-button 
+                        +button('ĐĂNG KÝ', 'large', false, '', 'signup.html')
+                        
