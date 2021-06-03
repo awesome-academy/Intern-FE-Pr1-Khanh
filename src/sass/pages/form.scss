@@ -1,0 +1,175 @@
+%formTextStyle {
+  color: $gray2;
+  font-size: 1.2rem;
+  font-family: $font3;
+}
+
+%itemPadding {
+  padding: 0 2.8rem;
+
+  @include lg {
+    padding: 0 2rem;
+  }
+
+  @include sm {
+    padding: 0 1rem;
+  }
+}
+
+.form-content {
+  margin-bottom: 10rem;
+
+  @include sm {
+    margin-bottom: 5rem;
+  }
+
+  form {
+    max-width: 108.5rem;
+    margin: 0 -2.8rem;
+    @include lg {
+      margin: 0 -2rem;
+    }
+
+    @include sm {
+      margin: 0 -1rem;
+    }
+
+    &.form--row {
+      display: flex;
+
+      @include sm {
+        flex-direction: column;
+      }
+    }
+
+    & > div {
+      flex-basis: 50%;
+    }
+
+    .form-title {
+      @extend %itemPadding;
+      font-size: 1.8rem;
+      color: $greenMedium;
+      font-family: $font3;
+      font-weight: bold;
+      margin-top: 6rem;
+      margin-bottom: 2.5rem;
+
+      @include sm {
+        margin-top: 4rem;
+      }
+    }
+
+    .form-description {
+      @extend %itemPadding;
+      font-size: 1.2rem;
+      color: $gray5;
+      margin-bottom: 3rem;
+    }
+
+    .signup-button {
+      @extend %itemPadding;
+      @include flex(row, flex-start);
+      @include sm {
+        justify-content: center;
+      }
+    }
+
+    .form-list {
+      @include flex;
+      flex-wrap: wrap;
+
+      .form-item {
+        flex-basis: 50%;
+        flex-shrink: 1;
+        margin-bottom: 3rem;
+        @include flex(column, center, flex-start);
+        @extend %itemPadding;
+
+        label {
+          @extend %formTextStyle;
+          margin-bottom: 1.5rem;
+
+          &.required::after {
+            content: "*";
+            color: red;
+            margin-left: 0.3rem;
+          }
+        }
+
+        input {
+          width: 100%;
+          outline: none;
+          border: 1px solid $gray10;
+          padding: 1.2rem;
+          font-size: 1.4rem;
+          color: $gray7;
+        }
+      }
+
+      &--column {
+        flex-direction: column;
+        align-items: flex-start;
+
+        .form-item {
+          width: 100%;
+        }
+      }
+    }
+
+    .form-checkbox {
+      @include flex($justifyContent: flex-start);
+      @extend %itemPadding;
+      @include md {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .checkbox {
+        margin-right: 2.5rem;
+
+        @include md {
+          margin-bottom: 1rem;
+        }
+
+        label {
+          @extend %formTextStyle;
+          margin-left: 1rem;
+        }
+
+        &--bold {
+          label {
+            margin-left: 0.5rem;
+            color: $blackMedium;
+          }
+        }
+      }
+
+      .forgot-password a {
+        @extend %formTextStyle;
+        font-size: 1.2rem;
+        text-decoration: underline;
+        font-style: italic;
+      }
+    }
+
+    .form-buttons {
+      @include flex(row, flex-start);
+      @extend %itemPadding;
+      margin-top: 1.5rem;
+
+      .back-button {
+        margin-right: 2rem;
+
+        @include sm {
+          margin: 0;
+          margin-top: 2rem;
+        }
+      }
+
+      @include sm {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

@@ -8,8 +8,11 @@ mixin sectionTitle(title='Section', pagination=false)
                 a(href="#") 
                     i(class=icons.arrowRight)
 
-mixin button(title='Click', style = null, url='#')
-    a(href=url class=`green-button ${style && 'green-button--' + style}`)= title
+mixin button(title='Click', style = null, outline=false, btnType='', url='#')
+    if btnType 
+        button(type=btnType class=`green-button ${style && 'green-button--' + style} ${outline && 'green-button--outline'}`)= title
+    else
+        a(href=url class=`green-button ${style && 'green-button--' + style} ${outline && 'green-button--outline'}`)= title
 
 mixin productStarList(number)
     - var n = 1;
@@ -64,3 +67,16 @@ mixin newsItem(item)
                 a(href="#")= item.title  
             p.news-description= item.description
             a(href="#").news-read-more Đọc tiếp
+
+mixin breadcrumb(activePage)
+    nav.breadcrumb.main-content 
+        ul.breadcrumb-list 
+            li.breadcrumb-item 
+                a(href="/") Home
+            li.breadcrumb-item
+                span= activePage
+    
+mixin formItem(item)
+    li.form-item 
+        label(class=item.required && 'required' for=item.name)= item.title
+        input(id=item.name type=item.type required=item.required && 'required' name=item.name) 
