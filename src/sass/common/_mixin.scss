@@ -20,6 +20,22 @@
   }
 }
 
+@mixin customScrollBar($width: 0.5, $trackColor: $gray10) {
+  &::-webkit-scrollbar {
+    width: $width;
+    height: 0.5rem;
+  }
+  /* Track */
+  &::-webkit-scrollbar-track {
+    background: $trackColor;
+  }
+
+  /* Handle */
+  &::-webkit-scrollbar-thumb {
+    background: $gray9;
+  }
+}
+
 @mixin sm() {
   @media screen and (max-width: 576px) {
     @content;

@@ -1,0 +1,91 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/products
+    include ../common/variables/product-images
+    include ../common/variables/similar-products
+    - const pageTitle = 'Chi tiết sản phẩm'
+    
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        section.product-detail.main-content 
+            .product-detail__top
+                .product-detail__top-header 
+                    h1.product-title Cây Dạ Lam
+                    +productStarList(5)
+                .product-detail__top-body.row.gx-5
+                        .product-images.col-12.col-lg-5 
+                            .product-images__top
+                                img(src="./assets/images/spx2-15.png", alt="product image")
+                            ul.product-images__bottom 
+                                each item in productImages  
+                                    li 
+                                        img(src=`./assets/images/${item}`, alt="product image")                              
+                        .product-info.col-12.col-lg-7
+                            h1.product-title Cây Dạ Lam
+                            +productStarList(5)
+                            .product-price 
+                                span.product-price__new 4.099.000 đ
+                                span.product-price__old 5.099.000 đ
+                            p.product-description Cây mọc thành bụi thưa, thân vươn thẳng với chiều cao cây trung bình từ 0,8-1,2m. Lá hình trứng, mép lá nguyên, gân lá nổi rõ, phiến rộng khoảng từ 15-20cm. Lá có màu xanh đậm ở mặt trên, quanh gân lá có màu trắng sữa; mặt dưới lá nhạt màu hơn. Lá cây dạ lam mọc cách, cuống lá dài khi rụng để lại các khía màu nâu nhạt.
+                            .product-amount
+                                span.product-amount__text Số lượng
+                                .product-amount__input 
+                                    button(type="button") -
+                                    input(type="number" value="1")
+                                    button(type="button") +
+                            .product-feature 
+                                +button('MUA NGAY', 'large', false, '')
+                                .orther-feature 
+                                    a(href="#").search-link 
+                                        i(class=icons.search) 
+                                    a(href="#").heart-link
+                                        i(class=icons.heart)
+                            .share-wrapper 
+                                ul.share-list 
+                                    li.share-item
+                                        a(href="#").facebook-link
+                                            i(class=icons.facebook)
+                                            span Like
+                                        span.total-share 0
+                                    li.share-item 
+                                        a(href="#").twitter-link
+                                            i(class=icons.twitter)
+                                            span Tweet
+                                    li.share-item
+                                        a(href="#").google-link
+                                            i(class=icons.google)
+                                            span 1
+                                        span.total-share 0
+                                .share-button 
+                                    a(href="#").share-link
+                                        i(class=icons.plus) 
+                                        span Share
+            .product-detail__middle
+                input(type='radio' name='product-content-filter' id='content-1' checked)
+                input(type='radio' name='product-content-filter' id='content-2') 
+                input(type='radio' name='product-content-filter' id='content-3') 
+                .product-content-header 
+                    label(for='content-1' class='content-1-label') THÔNG TIN SẢN PHẨM
+                    label(for='content-2' class='content-2-label') KHÁCH HÀNG ĐÁNH GIÁ
+                    label(for='content-3' class='content-3-label') THẺ TAG
+                ul.product-content-body
+                    li.content-1-view 
+                        span Tên phổ thông: Dạ lam, Huỳnh tinh cảnh, Dong vằn.
+                        span Tên khoa học: Calathea zebrina
+                        span Họ thực vật: Marantaceae (Củ dong).
+                        span Chiều cao: 0,8-1,2m
+                        span Cây dạ lam có nguồn gốc từ Brazil, được du nhập và phân bố rộng khắp ở Việt Nam.
+                        span Cây mọc thành bụi thưa, thân vươn thẳng với chiều cao cây trung bình từ 0,8-1,2m. Lá hình trứng, mép lá nguyên, gân lá nổi rõ, phiến rộng khoảng từ 15-20cm. Lá có màu xanh đậm ở mặt trên, quanh gân lá có màu trắng sữa; mặt dưới lá nhạt màu hơn. Lá cây dạ lam mọc cách, cuống lá dài khi rụng để lại các khía màu nâu nhạt. Cây dạ lam thuộc loại cây chịu bóng bán phần hoặc hoàn toàn, nhu cầu nước tương đối cao. Cây được nhân giống từ tách bụi, cây mọc khỏe, tốc độ sinh trưởng nhanh với sức sống mạnh. Đây là loại cây có dáng đẹp, màu lá mướt mát, tươi khỏe, cây rất phù hợp trồng chậu trang trí nội thất-văn phòng.Ngoài ra, cây còn có đặc điểm lọc khí, làm xanh mát môi trường, giúp điều hòa không khí, đặc biệt tốt cho những môi trường thường xuyên sử dụng các loại máy móc tảng nhiệt. Có thể bày cây ở hành lang hay ở giữa sảnh, đặt ở cạnh bàn làm việc hoặc trang trí các góc phòng có diện tích trung bình.
+                    li.content-2-view 
+                        span Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim accusantium ratione sit cum amet ea repellat. Rerum dolores corrupti incidunt, excepturi ducimus tempora dolorem quam provident animi accusantium iusto. Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis vero, possimus autem debitis officiis quaerat consequuntur aut assumenda quos nisi quas magni ipsum nam reprehenderit totam optio velit? Ea, qui!
+                    li.content-3-view 
+                        span Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa enim accusantium ratione sit cum amet ea repellat. Rerum dolores corrupti incidunt, excepturi ducimus tempora dolorem quam provident animi accusantium iusto. lorem
+            .product-detail__bottom
+                +sectionTitle('Sản phẩm cùng loại', true) 
+                ul.similar-products-list
+                    each item in similarProducts 
+                        +productItem(item)
