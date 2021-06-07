@@ -1,0 +1,461 @@
+%removeBorder {
+  border: 1px solid $gray0;
+  outline: none;
+}
+
+.product-detail {
+  margin-top: 6rem;
+
+  @include lg {
+    margin-top: 4rem;
+  }
+
+  @include sm {
+    margin-top: 3rem;
+  }
+
+  &__top {
+    margin-bottom: 10rem;
+
+    @include lg {
+      margin-bottom: 6rem;
+    }
+
+    @include sm {
+      margin-bottom: 5rem;
+    }
+
+    &-header {
+      display: none;
+      margin-bottom: 3rem;
+
+      @include lg {
+        display: block;
+      }
+
+      .product-title {
+        color: $gray7;
+        font-weight: 400;
+      }
+
+      .product-star-list {
+        justify-content: flex-start;
+        margin-top: 1rem;
+      }
+    }
+
+    &-body {
+      .product-images {
+        &__top {
+          overflow: hidden;
+
+          img {
+            width: 100%;
+            height: 43rem;
+            transition: 0.3s;
+            @include sm {
+              height: 30rem;
+            }
+          }
+
+          &:hover img {
+            transform: translateY(-3.5rem) scale(1.2);
+          }
+        }
+
+        &__bottom {
+          @include flex;
+          margin-top: 2rem;
+          margin-left: -0.5rem;
+          margin-right: -0.5rem;
+
+          li {
+            margin: 0 0.5rem;
+            overflow: hidden;
+
+            img {
+              cursor: pointer;
+              width: 100%;
+              height: 8rem;
+              transition: 0.3s;
+
+              @include sm {
+                height: 6rem;
+              }
+            }
+
+            &:hover img {
+              transform: scale(1.2);
+            }
+          }
+        }
+      }
+
+      .product-info {
+        @include flex(column);
+        align-items: flex-start;
+
+        .product-title {
+          color: $gray7;
+          font-size: 1.8rem;
+          font-weight: 400;
+          @include lg {
+            display: none;
+          }
+        }
+
+        .product-star-list {
+          justify-content: flex-start;
+          margin-top: 1rem;
+          margin-bottom: 1.5rem;
+          @include lg {
+            display: none;
+          }
+
+          i {
+            font-size: 1rem;
+          }
+        }
+
+        .product-price {
+          justify-content: flex-start;
+          margin-bottom: 2rem;
+          @include lg {
+            order: 3;
+            margin-top: 3rem;
+          }
+
+          &__new {
+            color: $redBold;
+            font-size: 1.8rem;
+            font-family: $font3;
+          }
+
+          &__old {
+            color: $gray9;
+            font-size: 1.4rem;
+            margin-left: 1rem;
+            text-decoration: line-through;
+          }
+        }
+
+        .product-description {
+          border-top: 1px solid $gray10;
+          border-bottom: 1px solid $gray10;
+          color: $gray3;
+          font-size: 1.4rem;
+          font-family: $font3;
+          padding: 2rem 0;
+          @include lg {
+            order: 1;
+          }
+        }
+
+        .product-amount {
+          @include flex;
+          border-bottom: 1px solid $gray10;
+          justify-content: flex-start;
+          padding: 2rem 0;
+          width: 100%;
+          @include lg {
+            order: 2;
+          }
+
+          &__text {
+            color: $gray7;
+            font-size: 1.4rem;
+            font-family: $font3;
+            margin-right: 2.5rem;
+          }
+
+          &__input {
+            @include flex;
+
+            button {
+              @extend %removeBorder;
+              background-color: $white;
+              font-size: 1.6rem;
+              width: 4.5rem;
+              height: 4.5rem;
+              transition: 0.3s;
+
+              &:hover {
+                background-color: $greenMedium;
+                color: $white;
+              }
+            }
+
+            input {
+              @extend %removeBorder;
+              font-size: 1.4rem;
+              align-self: stretch;
+              text-align: center;
+              width: 8rem;
+              margin: 0 0.5rem;
+              padding: 0 2rem;
+
+              &[type="number"]::-webkit-inner-spin-button,
+              &[type="number"]::-webkit-outer-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+              }
+            }
+          }
+        }
+
+        .product-feature {
+          display: flex;
+
+          @include lg {
+            order: 4;
+          }
+
+          .orther-feature {
+            @include sm {
+              margin-left: 1rem;
+              margin-bottom: 0;
+            }
+          }
+        }
+
+        .share-wrapper {
+          @include flex;
+          justify-content: flex-start;
+          margin-top: 2.5rem;
+
+          @include lg {
+            order: 5;
+          }
+
+          @include sm {
+            flex-direction: column;
+            align-items: flex-start;
+          }
+
+          .share-list {
+            @include flex;
+            margin-right: 3.5rem;
+
+            .share-item {
+              @include flex;
+              font-size: 1.2rem;
+              margin-right: 0.5rem;
+
+              a {
+                border-radius: 0.3rem;
+                color: $white;
+                padding: 0.3rem 0.5rem;
+                white-space: nowrap;
+
+                span {
+                  margin-left: 0.5rem;
+                }
+              }
+
+              .total-share {
+                @include flex;
+                align-self: stretch;
+                border: 1px solid $gray12;
+                border-radius: 0.3rem;
+                color: $gray4;
+                padding: 0 0.5rem;
+                margin-left: 1rem;
+                position: relative;
+                z-index: 2;
+
+                &::before {
+                  content: "";
+                  width: 0;
+                  height: 0;
+                  border-top: 6px solid transparent;
+                  border-bottom: 6px solid transparent;
+                  border-right: 6px solid $gray12;
+                  position: absolute;
+                  right: calc(100% + 0.5px);
+                }
+
+                &::after {
+                  content: "";
+                  width: 0;
+                  height: 0;
+                  border-top: 5px solid transparent;
+                  border-bottom: 5px solid transparent;
+                  border-right: 5px solid $white;
+                  position: absolute;
+                  right: calc(100%);
+                }
+              }
+
+              .facebook-link {
+                background-color: $blueBold;
+                border: 1px solid $blueBold;
+              }
+
+              .twitter-link {
+                background-color: $blueMedium;
+                border: 1px solid $blueMedium;
+              }
+
+              .google-link {
+                background-color: $white;
+                border: 1px solid $gray12;
+                color: $redBold;
+                span {
+                  font-weight: bold;
+                  margin: 0;
+                }
+              }
+            }
+          }
+
+          .share-button {
+            @include sm {
+              margin-top: 1rem;
+            }
+
+            a {
+              border-radius: 0.3rem;
+              background-color: $orange;
+              border: 2px solid $orange;
+              color: $white;
+              display: block;
+              padding: 0.3rem 0.5rem;
+              font-size: 1.2rem;
+              white-space: nowrap;
+
+              span {
+                margin-left: 0.5rem;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__middle {
+    @include flex(column, flex-start, flex-start);
+    height: 44rem;
+    margin-bottom: 6.5rem;
+
+    @include md {
+      margin-bottom: 4rem;
+    }
+
+    @include sm {
+      margin-bottom: 3rem;
+    }
+
+    input[type="radio"] {
+      display: none;
+
+      &#content-1:checked ~ .product-content-header .content-1-label,
+      &#content-2:checked ~ .product-content-header .content-2-label,
+      &#content-3:checked ~ .product-content-header .content-3-label {
+        border-top: 2px solid $gray3;
+        border-left: 2px solid $gray10;
+        border-right: 2px solid $gray10;
+        border-bottom: 2px solid $white;
+        color: $greenMedium;
+      }
+
+      &#content-1:checked ~ .product-content-body .content-1-view,
+      &#content-2:checked ~ .product-content-body .content-2-view,
+      &#content-3:checked ~ .product-content-body .content-3-view {
+        display: block;
+      }
+    }
+
+    .product-content-header {
+      @include flex;
+      justify-content: flex-start;
+      position: relative;
+      z-index: 2;
+
+      label {
+        border: 2px solid transparent;
+        border-bottom: 2px solid $gray10;
+        background-color: $white;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-family: $font3;
+        padding: 1rem 7.5rem;
+
+        @include lg {
+          padding: 1rem 3rem
+        }
+
+        @include md {
+          padding: 1rem 1.5rem
+        }
+
+        @include sm {
+          padding: 1rem 1rem
+        }
+      }
+    }
+
+    .product-content-body {
+      align-items: flex-start;
+      align-self: stretch;
+      border: 2px solid $gray10;
+      flex-grow: 1;
+      min-height: 0;
+      margin-top: -0.2rem;
+      padding: 4rem;
+
+      @include md {
+        padding: 3rem;
+      }
+
+      @include sm {
+        padding: 2rem;
+      }
+
+      li {
+        @include customScrollBar(0, transparent);
+        color: $gray3;
+        display: none;
+        font-size: 1.2rem;
+        height: 100%;
+        min-height: 0;
+        overflow-y: scroll;
+
+        &:first-child {
+          span {
+            display: block;
+            margin-bottom: 2rem;
+          }
+        }
+      }
+    }
+  }
+
+  &__bottom {
+    margin-bottom: 8rem;
+
+    @include sm {
+      margin-bottom: 5rem;
+    }
+
+    .similar-products-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr 1fr;
+      grid-gap: 3rem;
+      margin-top: 5rem;
+
+      @include lg {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      @include sm {
+        grid-gap: 1.5rem;
+        margin-top: 3rem;
+      }
+
+      .product-item {
+        height: 35rem;
+      }
+    }
+  }
+}

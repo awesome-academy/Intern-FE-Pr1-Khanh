@@ -29,7 +29,7 @@ mixin productStarList(number)
 
 mixin productContent(item)
     h4.product-name
-        a(href="#")= item.name 
+        a(href=item.link)= item.name 
     +productStarList(item.star)
     if item.description 
         span.product-description= item.description
@@ -38,7 +38,7 @@ mixin productContent(item)
         if item.oldPrice
             span.product-price--old= item.oldPrice + ' đ'
     .product-feature 
-        +button('MUA NGAY', 'large')
+        +button('MUA NGAY', 'large', false, '', item.link)
         .orther-feature 
             a(href="#").search-link 
                 i(class=icons.search) 
@@ -50,7 +50,7 @@ mixin productItem(item)
         .product-item__top
             img(src=`./assets/images/${item.image}`, alt=item.name).product-image
             .product-thumbnail
-                +button('MUA NGAY', 'small')
+                +button('MUA NGAY', 'small', false, '', item.link)
                 .orther-feature 
                     a(href="#").search-link 
                         i(class=icons.search) 
