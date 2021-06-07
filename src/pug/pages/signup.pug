@@ -16,8 +16,9 @@ block content
                     each item in signupForm.userInfo 
                         +formItem(item) 
                 .form-checkbox
-                    input(id='subcription-email' type="checkbox")
-                    label(for="subcription-email") Đăng kí nhận thông tin qua email
+                    .checkbox
+                        input(id='subcription-email' type="checkbox")
+                        label(for="subcription-email") Đăng kí nhận thông tin qua email
                 h3.form-title THÔNG TIN TÀI KHOẢN 
                 ul.form-list 
                     each item in signupForm.accountInfo

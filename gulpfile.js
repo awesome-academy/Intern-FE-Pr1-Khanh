@@ -2,6 +2,8 @@ const { src, dest, parallel, watch, series } = require("gulp"),
   concat = require("gulp-concat"),
   sass = require("gulp-sass"),
   pug = require("gulp-pug"),
+  autoprefixer = require('autoprefixer'),
+  postcss = require('gulp-postcss')
 
   browserSync = require("browser-sync").create();
 
@@ -15,6 +17,7 @@ const { sassFiles, htmlFiles } = FilesPath;
 function sassTask() {
   return src(sassFiles)
     .pipe(sass())
+    .pipe(postcss([autoprefixer()]))
     .pipe(concat("styles.css"))
     .pipe(dest("dist/css"))
     .pipe(browserSync.stream());

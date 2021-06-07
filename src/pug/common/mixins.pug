@@ -2,7 +2,7 @@ mixin sectionTitle(title='Section', pagination=false)
     h3.section-title 
         span.section-title__text= title
         if pagination 
-            .pagination
+            .slide-pagination
                 a(href="#") 
                     i(class=icons.arrowLeft)
                 a(href="#") 
@@ -18,23 +18,32 @@ mixin productStarList(number)
     - var n = 1;
     ul.product-star-list
         while n <= 5
-            li.product-star-item 
-                if number 
+            if number 
+                li.product-star-item 
                     i(class="fas fa-star")
                     - --number
-                else 
-                    li.product-star-item 
-                        i(class="far fa-star")
+            else 
+                li.product-star-item 
+                    i(class="far fa-star")
             - ++n
 
 mixin productContent(item)
     h4.product-name
         a(href="#")= item.name 
     +productStarList(item.star)
+    if item.description 
+        span.product-description= item.description
     .product-price 
         span.product-price--new= item.price + ' đ'
         if item.oldPrice
             span.product-price--old= item.oldPrice + ' đ'
+    .product-feature 
+        +button('MUA NGAY', 'large')
+        .orther-feature 
+            a(href="#").search-link 
+                i(class=icons.search) 
+            a(href="#").heart-link
+                i(class=icons.heart) 
                         
 mixin productItem(item)
     li.product-item 
@@ -42,8 +51,9 @@ mixin productItem(item)
             img(src=`./assets/images/${item.image}`, alt=item.name).product-image
             .product-thumbnail
                 +button('MUA NGAY', 'small')
-                a(href="#")
-                    i(class="fas fa-search") 
+                .orther-feature 
+                    a(href="#").search-link 
+                        i(class=icons.search) 
             if item.note 
                 div(class=`product-note ${item.note !== 'NEW' && 'bg-red'}`) 
                     span= item.note 
@@ -80,3 +90,8 @@ mixin formItem(item)
     li.form-item 
         label(class=item.required && 'required' for=item.name)= item.title
         input(id=item.name type=item.type required=item.required && 'required' name=item.name) 
+
+mixin sidebarItem(item)
+    li.sidebar-item 
+        i(class=icons.arrowRight) 
+        a(href=item.link)= item.title 

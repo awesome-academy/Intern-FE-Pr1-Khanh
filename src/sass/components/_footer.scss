@@ -23,7 +23,7 @@
       }
 
       .chanels-list {
-        @include flex($justifyContent: start);
+        @include flex($justifyContent: flex-start);
         margin-top: 0.3rem;
 
         .chanel-item {

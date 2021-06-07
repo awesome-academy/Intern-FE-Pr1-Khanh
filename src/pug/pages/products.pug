@@ -1,0 +1,72 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/sidebar-data
+    include ../common/variables/products
+    - const pageTitle = 'Danh sách sản phẩm'
+    
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        section.products-category.main-content 
+            .row.gx-5
+                aside.col-12.col-lg-3 
+                    include ../components/category
+                    +sectionTitle('Tìm theo giá')
+                    ul.sidebar-list.sidebar-list--price
+                        each item in priceRange
+                            +sidebarItem(item)
+                    +sectionTitle('Tìm theo màu')
+                    ul.colors-list 
+                        each item in colors 
+                            li.color-item 
+                                button(type='button')
+                                    .color(class=item.class)
+                                    span= item.title
+                article.col-12.col-lg-9
+                    .products-banner 
+                        img(src='./assets/images/products-banner.png', alt='green shop banner')
+                    input(type='radio' name='layout-fillter' id='grid-view' checked)
+                    input(type='radio' name='layout-fillter' id='list-view')
+                    .products-filter 
+                        .filter__left 
+                            label(for='grid-view' class='grid-view-label')
+                                i(class=icons.grid) 
+                            label(for='list-view' class='list-view-label')
+                                i(class=icons.list) 
+                        .filter__right 
+                            .filter-option
+                                label(for="orderby") Sắp xếp theo 
+                                .select-wrapper
+                                    select(name='orderby' id='orderby')
+                                        option(value='name') Tên sản phẩm
+                                        option(value='name') Giá giảm dần
+                                        option(value='name') Giá tăng dần
+                                        option(value='name') Đánh giá
+                            .filter-option
+                                label(for="number-of-products") Show 
+                                .select-wrapper
+                                    select(name='number-of-products' id='number-of-products')
+                                        option(value='5') 5
+                                        option(value='10') 10
+                                        option(value='15') 15
+                                        option(value='20') 20
+                    ul.products-category-list 
+                        each item in products 
+                            +productItem(item)
+                    .pagination 
+                        ul.pagination-list 
+                            li.pagination-item 
+                                a(href="#").pagination-link Trang đầu
+                            li.pagination-item.pagination-item--active 
+                                a(href="#").pagination-link 1
+                            li.pagination-item 
+                                a(href="#").pagination-link 2
+                            li.pagination-item 
+                                a(href="#").pagination-link 3
+                            li.pagination-item 
+                                a(href="#").pagination-link 4
+                            li.pagination-item 
+                                a(href="#").pagination-link Trang cuối
