@@ -113,24 +113,6 @@
         margin-bottom: 1.2rem;
       }
 
-      .contact-item {
-        margin-bottom: 1rem;
-
-        i {
-          color: $greenMedium;
-          font-size: 1.2rem;
-        }
-
-        span {
-          font-size: 1.2rem;
-          margin-left: 1rem;
-        }
-
-        &:first-child span {
-          margin-left: 1.4rem;
-        }
-      }
-
       .service-item {
         margin-top: 2rem;
 
@@ -188,5 +170,23 @@
         }
       }
     }
+  }
+}
+
+.contact-item {
+  margin-bottom: 1rem;
+
+  i {
+    color: $greenMedium;
+    font-size: 1.2rem;
+  }
+
+  span {
+    font-size: 1.2rem;
+    margin-left: 1rem;
+  }
+
+  &:first-child span {
+    margin-left: 1.4rem;
   }
 }
