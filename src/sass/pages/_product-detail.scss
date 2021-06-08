@@ -62,6 +62,10 @@
 
           &:hover img {
             transform: translateY(-3.5rem) scale(1.2);
+
+            @include sm {
+              transform: translateY(-3rem) scale(1.2);
+            }
           }
         }
 
