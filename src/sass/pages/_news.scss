@@ -1,0 +1,63 @@
+.news-main {
+  margin-top: 3.5rem;
+}
+
+.blogs-list {
+  margin-top: 1.5rem;
+  
+  @include lg {
+      margin-top: 5rem;
+  }
+
+  .blog-item {
+    & ~ .blog-item {
+        margin-top: 5rem;
+    }
+
+    .blog-title {
+      margin-bottom: 1.5rem;
+
+      a {
+        color: $gray5;
+        font-size: 1.8rem;
+        transition: 0.3s;
+
+        &:hover {
+          color: $greenBold;
+        }
+      }
+    }
+
+    .blog-info {
+      @include flex;
+      justify-content: flex-start;
+      margin-bottom: 2rem;
+
+      div ~ div {
+        margin-left: 1.7rem;
+      }
+
+      i {
+        color: $greenBold;
+        font-size: 1.2rem;
+        margin-right: 0.5rem;
+      }
+
+      span {
+        color: $gray2;
+        font-size: 1.2rem;
+        font-family: $font3;
+      }
+    }
+
+    .blog-image img {
+        width: 100%;
+    }
+
+    .blog-description {
+        font-size: 1.2rem;
+        font-family: $font3;
+        margin-top: 3rem;
+    }
+  }
+}
