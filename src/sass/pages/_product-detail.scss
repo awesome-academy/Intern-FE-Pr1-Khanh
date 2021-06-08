@@ -45,6 +45,8 @@
     }
 
     &-body {
+      align-items: flex-start;
+      
       .product-images {
         &__top {
           overflow: hidden;

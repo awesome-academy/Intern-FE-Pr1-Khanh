@@ -1,0 +1,42 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/cart-table-products
+    - const pageTitle = 'Giỏ hàng'
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        section.cart-main.main-content 
+            h1.cart-header Giỏ hàng 
+            .cart-table
+                table.table
+                    thead.table__head 
+                        tr.table__row 
+                            th.table__col HÌNH ẢNH 
+                            th.table__col TÊN SẢN PHẨM 
+                            th.table__col ĐƠN GIÁ
+                            th.table__col SỐ LƯỢNG
+                            th.table__col THÀNH TIỀN
+                            th.table__col XÓA
+                    tbody.table__body
+                        each item in cartTableProducts
+                            +cartTableItem(item)
+            .cart-table-button 
+                +button('HỦY ĐƠN HÀNG', null, true)
+                +button('TIẾP TỤC MUA')
+            .cart-checkout 
+                .checkout__table 
+                    table
+                        tr 
+                            td TỔNG TIỀN (CHƯA THUẾ)
+                            td 270.000 đ
+                        tr 
+                            td THUẾ (VAT 10%)
+                            td 27.000 đ
+                        tr 
+                            td TỔNG PHẢI THANH TOÁN
+                            td 297.000 đ
+                .checkout__button 
+                    +button('Thanh toán')
