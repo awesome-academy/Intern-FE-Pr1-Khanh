@@ -1,0 +1,82 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/sidebar-data
+    include ../common/variables/news-detail
+    - const pageTitle = 'Tin tức'
+    - const newsDetailItem = newsDetail[0]
+    
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        section.news-main.main-content 
+            .row.gx-5
+                aside.col-12.col-lg-3 
+                    include ../components/category
+                    +sectionTitle('Tin tức nổi bật')
+                    ul.news-list
+                        each item in hotNews
+                            li.news-item 
+                                img(src=`./assets/images/${item.image}`, alt=item.title)
+                                a(href=item.link)= item.title
+                    +sectionTitle('Blog tag')
+                    ul.blog-tag-list
+                        each item in blogTags 
+                            li.blog-tag-item
+                                a(href=item.link)= item.title
+                article.col-12.col-lg-9
+                    .blog-item 
+                        h2.blog-title 
+                            a(href='#')= newsDetailItem.title
+                        .blog-info 
+                            .blog-info__date 
+                                i(class=icons.calendar)
+                                span= newsDetailItem.createDate
+                            .blog-info__time 
+                                i(class=icons.clock)
+                                span= newsDetailItem.createTime
+                            .blog-info__comments 
+                                i(class=icons.comment)
+                                span= newsDetailItem.comments
+                        .blog-content!= newsDetailItem.content
+                    .comments 
+                        p.comments__title BÌNH LUẬN (3)
+                        ul.comments__list
+                            each item in newsDetailComments
+                                li.comment-item 
+                                    .comment-item__left
+                                        img(src=`./assets/images/${item.image}`, alt=item.name)
+                                    .comment-item__right 
+                                        .user 
+                                            .user-info 
+                                                h4.user-name= item.name 
+                                                p.user-comment= item.content
+                                                i.comment-created= item.createTime
+                                            span Trả lời 
+                                        if item.subComments
+                                            .sub-comments 
+                                                ul.comments__list 
+                                                    each subItem in item.subComments
+                                                        li.comment-item 
+                                                            .comment-item__left
+                                                                img(src=`./assets/images/${subItem.image}`, alt=subItem.name)
+                                                            .comment-item__right 
+                                                                .user 
+                                                                    .user-info 
+                                                                        h4.user-name= subItem.name 
+                                                                        p.user-comment= subItem.content
+                                                                        i.comment-created= item.createTime
+                                                                    span Trả lời 
+                    .writing-comments 
+                        p.comments__title VIẾT BÌNH LUẬN:
+                        form.comments__form(action="#" method="post")
+                            .form__top
+                                input(type="text" placeholder="Họ và tên:") 
+                                input(type="email" placeholder="Email:") 
+                                input(type="text" placeholder="Phone:") 
+                            .form__middle
+                                textarea(name="comment-area" rows="4" cols="50" placeholder="Bình luận")
+                            .form__bottom
+                                +button('GỬI')
