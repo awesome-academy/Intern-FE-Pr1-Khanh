@@ -59,3 +59,24 @@ block content
                 ul.news-list 
                     each item in news 
                         +newsItem(item)
+    input(type="checkbox" id="popup-checkbox")
+    .home-popup
+        .popup-content 
+            .popup-content__head
+                label(for="popup-checkbox") X
+            .popup-content__body
+                .popup-content__body-left 
+                    img(src="./assets/images/popup-img.png", alt="popup flower")
+                .popup-content__body-right
+                    h3.popup-title 
+                        span.sub-title Nhận tin tức từ chúng tôi
+                        br
+                        span.main-title ĐĂNG KÝ EMAIL NGAY HÔM NAY
+                    .subscribe-form
+                        input(type="text" placeholder="Nhập email của bạn vào đây")
+                        a(href="#") 
+                            i(class=icons.plane)
+                    p.popup-description Đăng ký email ngay hôm nay để nhận các thông tin về sự kiện và các trương chình giảm giá từ chúng tôi
+                    .never-appear
+                        input(type="checkbox" id="never-appear-checkbox")
+                        label(for="never-appear-checkbox") Không hiển thị lại thông báo này nữa
