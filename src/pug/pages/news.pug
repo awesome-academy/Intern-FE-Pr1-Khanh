@@ -1,0 +1,47 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/sidebar-data
+    include ../common/variables/blogs
+    - const pageTitle = 'Tin tức'
+    
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        section.news-main.main-content 
+            .row.gx-5
+                aside.col-12.col-lg-3 
+                    include ../components/category
+                    +sectionTitle('Tin tức nổi bật')
+                    ul.news-list
+                        each item in hotNews
+                            li.news-item 
+                                img(src=`./assets/images/${item.image}`, alt=item.title)
+                                a(href=item.link)= item.title
+                    +sectionTitle('Blog tag')
+                    ul.blog-tag-list
+                        each item in blogTags 
+                            li.blog-tag-item
+                                a(href=item.link)= item.title
+                article.col-12.col-lg-9
+                    ul.blogs-list 
+                        each item in blogs 
+                            li.blog-item 
+                                h2.blog-title 
+                                    a(href=item.link)= item.title 
+                                .blog-info 
+                                    .blog-info__date 
+                                        i(class=icons.calendar)
+                                        span= item.createDate
+                                    .blog-info__time 
+                                        i(class=icons.clock)
+                                        span= item.createTime
+                                    .blog-info__comments 
+                                        i(class=icons.comment)
+                                        span= item.comments
+                                .blog-image
+                                    img(src=`./assets/images/${item.image}`, alt=item.title)
+                                p.blog-description= item.description
+                    +pagination

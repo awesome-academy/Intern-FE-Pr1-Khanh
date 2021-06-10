@@ -1,99 +1,174 @@
 .sidebar-list {
-    margin: 1.5rem 0;
-    
-    @include lg {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        grid-column-gap: 2rem;
-    }
+  margin: 1.5rem 0;
 
+  @include lg {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-column-gap: 2rem;
+  }
+
+  @include sm {
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 1rem;
+  }
+
+  &--price {
     @include sm {
-        grid-template-columns: 1fr 1fr;
-        grid-column-gap: 1rem;
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .sidebar-item {
+    font-family: $font3;
+    padding: 1rem 0;
+    border-bottom: 1px solid $gray10;
+
+    i {
+      color: $gray2;
+      margin-right: 0.5rem;
     }
 
-    &--price {
-        @include sm {
-            grid-template-columns: 1fr;
-        }
+    a {
+      color: $gray2;
+      font-size: 1.2rem;
+      transition: 0.2s;
+
+      &:hover {
+        color: $greenMedium;
+        font-weight: bold;
+        margin-left: 0.5rem;
+      }
     }
-
-    .sidebar-item {
-        font-family: $font3;
-        padding: 1rem 0;
-        border-bottom: 1px solid $gray10;
-
-        i {
-            color: $gray2;
-            margin-right: .5rem;
-        }
-        
-        a {
-            color: $gray2;
-            font-size: 1.2rem;
-            transition: .2s;
-
-            &:hover {
-                color: $greenMedium;
-                font-weight: bold;
-                margin-left: .5rem
-            }
-        }
-    }
+  }
 }
 
 .colors-list {
-    @include flex;
-    flex-wrap: wrap;
-    margin-bottom: 3rem;
+  @include flex;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
 
-    .color-item {
-        flex-basis: 50%;
-        margin-top: 2.5rem;
+  .color-item {
+    flex-basis: 50%;
+    margin-top: 2.5rem;
 
-        @include lg {
-            flex-basis: 33.33%
-        }
-
-        button {
-            @include flex(row, flex-start);
-            padding: 0;
-            background-color: $white;
-            border: none;
-            outline: none;
-        }
-
-        span {
-            font-size: 1.2rem;
-            font-family: $font3;
-            color: $gray2;
-        }
-
-        .color {
-            border-radius: 50%;
-            height: 2.5rem;
-            margin-right: 1rem;
-            width: 2.5rem;
-
-            &.green-color {
-                background-color: $greenRegular;
-            }
-
-            &.orange-color {
-                background-color: $orange;
-            }
-            &.purple-color {
-                background-color: $purple;
-            }
-            &.blue-color {
-                background-color: $blue;
-            }
-            &.yellow-color {
-                background-color: $yellowMedium;
-            }
-            &.pink-color {
-                background-color: $pink;
-            }
-        }
+    @include lg {
+      flex-basis: 33.33%;
     }
+
+    button {
+      @include flex(row, flex-start);
+      padding: 0;
+      background-color: $white;
+      border: none;
+      outline: none;
+    }
+
+    span {
+      font-size: 1.2rem;
+      font-family: $font3;
+      color: $gray2;
+    }
+
+    .color {
+      border-radius: 50%;
+      height: 2.5rem;
+      margin-right: 1rem;
+      width: 2.5rem;
+
+      &.green-color {
+        background-color: $greenRegular;
+      }
+
+      &.orange-color {
+        background-color: $orange;
+      }
+      &.purple-color {
+        background-color: $purple;
+      }
+      &.blue-color {
+        background-color: $blue;
+      }
+      &.yellow-color {
+        background-color: $yellowMedium;
+      }
+      &.pink-color {
+        background-color: $pink;
+      }
+    }
+  }
+}
+
+.news-list {
+  margin: 2.5rem 0;
+
+  @include lg {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1.5rem;
+  }
+
+  @include sm {
+    grid-template-columns: 1fr;
+  }
+
+  .news-item {
+    @include flex;
+
+    @include lg {
+      align-items: flex-start;
+      justify-content: flex-start;
+      margin-top: 0 !important;
+    }
+
+    & ~ .news-item {
+      margin-top: 2rem;
+    }
+
+    img {
+      border: 1px solid $gray10;
+      width: 8rem;
+      height: 8rem;
+      margin-right: 1rem;
+    }
+
+    a {
+      color: $gray5;
+      font-size: 1.2rem;
+      font-family: $font3;
+      transition: 0.3s;
+
+      &:hover {
+        color: $greenMedium;
+      }
+    }
+  }
+}
+
+.blog-tag-list {
+  @include flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-left: -0.5rem;
+  margin-right: -0.5rem;
+  margin-top: 2.5rem;
+
+  .blog-tag-item {
+    margin: 0 0.5rem;
+    margin-bottom: 1rem;
+
+    a {
+      border: 1px solid $gray10;
+      color: $gray2;
+      display: block;
+      font-size: 1.2rem;
+      font-family: $font3;
+      padding: 1rem 1.5rem;
+      transition: 0.3s;
+
+      &:hover {
+        background-color: $greenMedium;
+        color: $white;
+      }
+    }
+  }
 }

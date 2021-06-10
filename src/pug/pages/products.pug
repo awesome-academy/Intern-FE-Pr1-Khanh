@@ -56,17 +56,4 @@ block content
                     ul.products-category-list 
                         each item in products 
                             +productItem(item)
-                    .pagination 
-                        ul.pagination-list 
-                            li.pagination-item 
-                                a(href="#").pagination-link Trang đầu
-                            li.pagination-item.pagination-item--active 
-                                a(href="#").pagination-link 1
-                            li.pagination-item 
-                                a(href="#").pagination-link 2
-                            li.pagination-item 
-                                a(href="#").pagination-link 3
-                            li.pagination-item 
-                                a(href="#").pagination-link 4
-                            li.pagination-item 
-                                a(href="#").pagination-link Trang cuối
+                    +pagination
