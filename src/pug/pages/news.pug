@@ -41,7 +41,8 @@ block content
                                     .blog-info__comments 
                                         i(class=icons.comment)
                                         span= item.comments
-                                .blog-image
-                                    img(src=`./assets/images/${item.image}`, alt=item.title)
-                                p.blog-description= item.description
+                                .blog-content 
+                                    .blog-content__image
+                                        img(src=`./assets/images/${item.image}`, alt=item.title)
+                                    p.blog-content__description= item.description
                     +pagination
