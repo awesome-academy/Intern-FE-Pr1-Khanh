@@ -413,3 +413,189 @@
     }
   }
 }
+
+#popup-checkbox {
+  display: none;
+
+  &:checked ~ .home-popup {
+    opacity: 0;
+    visibility: hidden;
+
+    .popup-content {
+      animation-name: popupAnimHide;
+      animation-duration: 1s;
+      animation-iteration-count: 1;
+      animation-timing-function: ease-out;
+      animation-fill-mode: forwards;
+    }
+  }
+}
+
+.home-popup {
+  background-color: rgba(0, 0, 0, 0.5);
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: fixed;
+  top: 0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 2;
+  transition: 1s;
+
+  .popup-content {
+    @include absoluteCenter(x);
+    animation-name: popupAnimShow;
+    animation-duration: 1.2s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    background-color: $white2;
+    display: inline-block;
+    padding: 1.5rem;
+    transition: 1s;
+
+    &__head {
+      @include flex;
+      justify-content: flex-end;
+
+      label {
+        cursor: pointer;
+        color: $greenMedium;
+        font-size: 1.8rem;
+        line-height: 1;
+      }
+    }
+
+    &__body {
+      @include flex;
+      padding: 5rem 0;
+
+      @include lg {
+        flex-direction: column;
+      }
+
+      @include sm {
+        padding: 1rem 0;
+      }
+
+      &-left {
+        @include flex;
+
+        @include lg {
+          margin-bottom: 3rem;
+        }
+
+        @include sm {
+          img {
+            width: 100%;
+          }
+        }
+      }
+
+      &-right {
+        align-self: stretch;
+        padding-right: 2.5rem;
+        width: 43rem;
+
+        @include lg {
+          padding: 0 1.5rem;
+        }
+
+        @include sm {
+          width: 100%;
+          padding: 0 1rem;
+        }
+
+        .popup-title {
+          .sub-title {
+            font-size: 3.7rem;
+            font-family: $font4;
+
+            @include sm {
+              font-size: 3rem;
+            }
+          }
+
+          .main-title {
+            color: $greenMedium;
+            display: block;
+            font-size: 2.3rem;
+            font-weight: bold;
+            margin-top: 0.5rem;
+            margin-bottom: 3rem;
+
+            @include sm {
+              font-size: 2rem;
+              margin-bottom: 2rem;
+            }
+          }
+        }
+
+        .subscribe-form {
+          height: 4.4rem;
+          margin-bottom: 1.5rem;
+
+          @include sm {
+            input {
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        .popup-description {
+          color: $gray2;
+          font-family: $font3;
+          font-size: 1.4rem;
+          margin-bottom: 3.5rem;
+
+          @include sm {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+          }
+        }
+
+        .never-appear {
+          @include flex;
+          justify-content: flex-start;
+
+          input {
+            border: 1px solid $gray10;
+            outline: none;
+          }
+
+          label {
+            color: $gray2;
+            font-size: 1.4rem;
+            font-family: $font3;
+            margin-left: 1rem;
+          }
+        }
+      }
+    }
+  }
+}
+
+@keyframes popupAnimShow {
+  from {
+    top: 0;
+    transform: translateX(-50%) translateY(-100%);
+  }
+  to {
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+@keyframes popupAnimHide {
+  from {
+    opacity: 1;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(1);
+  }
+  to {
+    opacity: 0;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%) scale(0);
+  }
+}

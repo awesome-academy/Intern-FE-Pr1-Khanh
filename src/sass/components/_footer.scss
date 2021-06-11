@@ -58,34 +58,6 @@
           color: $greenMedium;
         }
       }
-
-      .subscribe-form {
-        @include flex;
-        align-self: stretch;
-
-        input {
-          flex-grow: 1;
-          height: 100%;
-          border: none;
-          outline: none;
-          font-size: 1.4rem;
-          padding: 0 1.5rem;
-        }
-
-        a {
-          @include flex;
-          font-size: 1.4rem;
-          padding: 1.5rem;
-          height: 100%;
-          background-color: $greenMedium;
-          color: $white;
-          transition: 0.3s;
-
-          &:hover {
-            background-color: $greenBold;
-          }
-        }
-      }
     }
   }
 
@@ -133,9 +105,14 @@
               margin-top: 1rem;
             }
 
+            i {
+              font-size: 1.2rem;
+            }
+
             a {
               color: $gray2;
               font-size: 1.2rem;
+              margin-left: 0.3rem;
               transition: 0.3s;
 
               &:hover {
@@ -149,15 +126,29 @@
   }
 
   &__bottom {
+    .main-content {
+      @include flex;
+      justify-content: space-between;
+      padding-top: 2rem;
+      padding-bottom: 2rem;
+
+      @include lg {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
     .orther-list {
       @include flex($justifyContent: flex-start);
-      padding: 2.5rem 0;
-      padding-top: 1rem;
       flex-wrap: wrap;
+      margin: 0 -1.15rem;
 
       .orther-item {
-        margin-right: 2.3rem;
-        margin-top: 1rem;
+        margin: 0 1.15rem;
+
+        @include sm {
+          margin-bottom: 0.5rem;
+        }
 
         .orther-link {
           font-size: 1.2rem;
@@ -169,6 +160,57 @@
           }
         }
       }
+    }
+
+    .payment-list {
+      @include flex;
+      margin: 0 -0.75rem;
+
+      @include lg {
+        margin-top: 1rem;
+      }
+
+      .payment-item {
+        margin: 0 0.75rem;
+
+        .payment-link {
+          color: $gray2;
+          font-size: 2rem;
+          transition: 0.3s;
+
+          &:hover {
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+}
+
+.subscribe-form {
+  @include flex;
+  align-self: stretch;
+
+  input {
+    flex-grow: 1;
+    height: 100%;
+    border: none;
+    outline: none;
+    font-size: 1.4rem;
+    padding: 0 1.5rem;
+  }
+
+  a {
+    @include flex;
+    font-size: 1.4rem;
+    padding: 1.5rem;
+    height: 100%;
+    background-color: $greenMedium;
+    color: $white;
+    transition: 0.3s;
+
+    &:hover {
+      background-color: $greenBold;
     }
   }
 }

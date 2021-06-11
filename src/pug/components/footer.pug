@@ -4,14 +4,14 @@ include ../common/variables/footer-list
 footer.footer 
     .footer__top
         .main-content.row 
-            .col-12.col-md-4.footer__top-left 
+            .col-12.col-lg-4.footer__top-left 
                     p.our-chanels KÊNH THÔNG TIN TỪ CHÚNG TÔI 
                     ul.chanels-list 
                         each item in chanels 
                             li.chanel-item 
                                 a(href="#").chanel-link
                                     i(class=item.icon)
-            .col-12.col-md-8.footer__top-right.row.mt-4.mt-md-0
+            .col-12.col-lg-8.footer__top-right.row.mt-4.mt-lg-0
                 p.subscribe-title.col-12.col-md-4 ĐĂNG KÝ NHẬN <br class="d-none d-md-inline"/> EMAIL TỪ CHÚNG TÔI
                 .subscribe-form.col-12.col-md-8.mt-3.mt-md-0
                     input(type="text")
@@ -38,6 +38,7 @@ footer.footer
                             ul.sub-service-list 
                                 each subItem in item.children 
                                     li.sub-service-item 
+                                        i(class=icons.arrowRight)
                                         a(href=subItem.link)= subItem.title
     .footer__bottom
         .main-content 
@@ -51,4 +52,17 @@ footer.footer
                 li.orther-item 
                     a(href="#").orther-link Thông tin liên hệ 
                 li.orther-item 
-                    a(href="#").orther-link Câu hỏi thường gặp 
+                    a(href="#").orther-link Câu hỏi thường gặp
+            ul.payment-list
+                li.payment-item 
+                    a(href="#").payment-link
+                        i(class=icons.visa) 
+                li.payment-item 
+                    a(href="#").payment-link
+                        i(class=icons.mastercard) 
+                li.payment-item 
+                    a(href="#").payment-link
+                        i(class=icons.paypal) 
+                li.payment-item 
+                    a(href="#").payment-link
+                        i(class=icons.discover) 
