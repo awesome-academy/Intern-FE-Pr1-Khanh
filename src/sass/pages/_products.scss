@@ -132,6 +132,10 @@
     grid-template-columns: 1fr;
     grid-gap: 3.5rem;
 
+    @include sm {
+      grid-gap: 2.5rem;
+    }
+
     .product-item {
       flex-direction: row;
       height: auto;

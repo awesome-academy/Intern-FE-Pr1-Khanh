@@ -18,28 +18,25 @@
 }
 
 .main__slide {
-  background-image: url("../assets/images/slide2.png");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
   @extend %sectionMarginBottom;
 }
 
 .slide {
   @include flex(column);
-  padding-top: 14rem;
-  padding-bottom: 14rem;
   color: $white;
   position: relative;
 
-  @include lg {
-    padding-top: 10rem;
-    padding-bottom: 10rem;
+  .carousel-text {
+    @include absoluteCenter;
+    @include flex(column);
+    width: 100%;
   }
 
-  @include md {
-    padding-top: 5rem;
-    padding-bottom: 10rem;
+  .carousel-inner {
+    .carousel-item img {
+      height: 58.5rem;
+      object-fit: cover;
+    }
   }
 
   &__brand {
@@ -95,15 +92,18 @@
     bottom: 5rem;
 
     .cirle-button {
+      border: none;
+      background-color: $white !important;
+      border-radius: 50%;
+      height: 0;
+      outline: none;
+      opacity: 1 !important;
       margin: 0 0.5rem;
       padding: 0.7rem;
-      border: none;
-      outline: none;
-      background-color: $white;
-      border-radius: 50%;
+      width: 0;
 
-      &--active {
-        background-color: $greenMedium;
+      &.active {
+        background-color: $greenMedium !important;
       }
     }
   }

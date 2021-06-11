@@ -10,18 +10,26 @@ block title
     title Home
 block content
     main.main 
-        section.main__slide 
-            .main-content.slide 
-                h2.slide__brand GREEN SHOP
-                P.slide__content 
-                    span.content__title CHO THUÊ CÂY CẢNH TẾT 2016
-                    i.content__sub-title ( Miễn phí vận chuyện với những đơn hàng có trị giá trên 5.000.000 )
-                .slide__detail
-                    +button('Xem chi tiết')
-                .slide__button 
-                    button.cirle-button.cirle-button--active
-                    button.cirle-button
-                    button.cirle-button
+        section.main__slide
+            .slide#carouselExampleDark.carousel.carousel-dark.slide(data-bs-ride='carousel') 
+                .slide__button.carousel-indicators
+                    button.cirle-button.cirle-button--active.active(type='button' data-bs-target='#carouselExampleDark' data-bs-slide-to='0' aria-current='true' aria-label='Slide 1')
+                    button.cirle-button(type='button' data-bs-target='#carouselExampleDark' data-bs-slide-to='1' aria-label='Slide 2')
+                    button.cirle-button(type='button' data-bs-target='#carouselExampleDark' data-bs-slide-to='2' aria-label='Slide 3')
+                .carousel-inner
+                    .carousel-item.active
+                        img.d-block.w-100(src="../assets/images/slide2.png" alt="slide image 1")
+                    .carousel-item
+                        img.d-block.w-100(src="../assets/images/slide2.png" alt="slide image 2")
+                    .carousel-item
+                        img.d-block.w-100(src="../assets/images/slide2.png" alt="slide image 3")
+                .carousel-text 
+                    h2.slide__brand GREEN SHOP
+                    P.slide__content 
+                        span.content__title CHO THUÊ CÂY CẢNH TẾT 2016
+                        i.content__sub-title ( Miễn phí vận chuyện với những đơn hàng có trị giá trên 5.000.000 )
+                    .slide__detail
+                        +button('Xem chi tiết')
         section.main__hot-products
             .main-content.hot-products
                 +sectionTitle('Sản phẩm nổi bật') 
