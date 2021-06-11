@@ -75,48 +75,6 @@
       }
     }
 
-    .form-list {
-      @include flex;
-      flex-wrap: wrap;
-
-      .form-item {
-        flex-basis: 50%;
-        flex-shrink: 1;
-        margin-bottom: 3rem;
-        @include flex(column, center, flex-start);
-        @extend %itemPadding;
-
-        label {
-          @extend %formTextStyle;
-          margin-bottom: 1.5rem;
-
-          &.required::after {
-            content: "*";
-            color: red;
-            margin-left: 0.3rem;
-          }
-        }
-
-        input {
-          width: 100%;
-          outline: none;
-          border: 1px solid $gray10;
-          padding: 1.2rem;
-          font-size: 1.4rem;
-          color: $gray7;
-        }
-      }
-
-      &--column {
-        flex-direction: column;
-        align-items: flex-start;
-
-        .form-item {
-          width: 100%;
-        }
-      }
-    }
-
     .form-checkbox {
       @include flex($justifyContent: flex-start);
       @extend %itemPadding;
@@ -124,8 +82,7 @@
         flex-direction: column;
         align-items: flex-start;
       }
-      
-     
+
       .checkbox {
         @include flex;
         margin-right: 2.5rem;
@@ -172,6 +129,51 @@
       @include sm {
         flex-direction: column-reverse;
       }
+    }
+  }
+}
+
+.form-list {
+  @include flex;
+  flex-wrap: wrap;
+
+  .form-item {
+    flex-basis: 50%;
+    flex-shrink: 1;
+    margin-bottom: 3rem;
+    @include flex(column, center, flex-start);
+    @extend %itemPadding;
+
+    label {
+      @extend %formTextStyle;
+      margin-bottom: 1.5rem;
+
+      &.required::after {
+        content: "*";
+        color: red;
+        font-size: 1.6rem;
+        font-weight: bold;
+        vertical-align: middle;
+        margin-left: 0.3rem;
+      }
+    }
+
+    input {
+      width: 100%;
+      outline: none;
+      border: 1px solid $gray10;
+      padding: 1.2rem;
+      font-size: 1.4rem;
+      color: $gray7;
+    }
+  }
+
+  &--column {
+    flex-direction: column;
+    align-items: flex-start;
+
+    .form-item {
+      width: 100%;
     }
   }
 }

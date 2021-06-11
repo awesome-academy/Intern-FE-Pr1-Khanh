@@ -89,7 +89,10 @@ mixin breadcrumb(activePage)
 mixin formItem(item)
     li.form-item 
         label(class=item.required && 'required' for=item.name)= item.title
-        input(id=item.name type=item.type required=item.required && 'required' name=item.name) 
+        if item.type === 'textarea'
+            textarea(id=item.name required=item.required && 'required' name=item.name)
+        else
+            input(id=item.name type=item.type required=item.required && 'required' name=item.name) 
 
 mixin sidebarItem(item)
     li.sidebar-item 

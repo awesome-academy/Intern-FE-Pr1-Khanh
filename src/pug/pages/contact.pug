@@ -1,0 +1,30 @@
+extends ../common/base.pug
+
+block variables
+    include ../common/variables/form-data
+    - const pageTitle = 'Liên hệ'
+    
+block title 
+    title= pageTitle
+block content
+    main.main
+        +breadcrumb(pageTitle)
+        iframe(src='https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d10738.41680224412!2d105.82860686541468!3d21.024572509937812!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3135ab9926e7bd67%3A0x580e078874d5df1e!2sTemple%20Of%20Literature!5e0!3m2!1sen!2s!4v1623243817569!5m2!1sen!2s' width='600' height='450' style='border:0;' allowfullscreen='' loading='lazy')
+        section.contact-info.main-content 
+            .contact-info__left 
+                h3.contact-title THÔNG TIN LIÊN HỆ
+                form(action="#")
+                    ul.form-list
+                        each item in contactForm 
+                            +formItem(item) 
+            .contact-info__right 
+                img(src="./assets/images/logo2.png", alt="green shop")
+                p DKT được thành lập với niềm đam mê và khát vọng thành công trong lĩnh vực Thương mại điện tử.Chúng tôi đã và đang khẳng định được vị trí hàng đầu bằng những sản phẩm
+                ul.contact-detail 
+                    li.contact-item 
+                        i(class=icons.mobile)
+                        span Điện thoại: (84-4) 66.558.868                        
+                    li.contact-item 
+                        i(class=icons.email)
+                        span Email: info@dkt.com.vn 
+                    
